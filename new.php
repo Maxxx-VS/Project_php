@@ -2,20 +2,61 @@
 <html>
 <body>
 
+<?php
+$i = 0;
+// устанавливаем время года
+$flag = true;
+do {
+switch (date("m")) {
+    case 1:
+    case 2:
+    case 12:
+        $i = 0;
+    break;
+    case 3:
+    case 4:
+    case 5:
+        $i = 1;
+    break;
+    case 6:
+    case 7:
+    case 8:
+        $i = 2;
+    break;
+    case 9:
+    case 10:
+    case 11:
+        $i = 3;
+    break;
+    default:
+        throw new Exception('Ошибка');
+    break;}
+    } while ($flaf = false);
+// определяем переменные
+$seasons = '';
+$buyer = array(
+    array(),
+    array(),
+    array(),
+    array(),
+    array(),
+    array(),
+    array(),
+);
+$money = 10000;
+?>
+
 <h3>Вбибирай сезон:</h3>
 <form method="POST">
     <input type="radio" name="course1" value="Winter" />Зима <br>
     <input type="radio" name="course2" value="Summer" />Лето <br>
     <input type="radio" name="course3" value="Spring" />Весна <br>
-    <input type="radio" name="course4" value="Autumn" />Осень <br>
-    <input type="submit" value="Отправить"><hr><hr>
+    <input type="radio" name="course4" value="Autumn" />Осень <br><br>
+    <input type="submit" value="Выбрать сезон"><hr><hr>
 </form>
-
-
 
 <?php
 // выбор времени года
-$seasons = '';
 if (isset($_POST["course1"])){
     $seasons = $_POST["course1"];
     $i = 0;} 
@@ -29,105 +70,72 @@ elseif (isset($_POST["course4"])){
     $seasons = $_POST["course4"];
     $i = 3;}
 
-// добавление в корзину
-$buyer = array();
-
-
-
-// депозит покупателя
-$money = 10000;
-
-
-
-// товары
+// список товаров товаров
 $shoes = array(
-    array('Обувь', "Winter",5000, 5),
-    array('Обувь', "Summer", 1500, 30),
-    array('Обувь', "Spring", 2500, 15),
-    array('Обувь', "Autumn", 2500, 50));
+    array('Ботинки', "Winter",1000, 10),
+    array('Ботинки', "Summer", 2000, 20),
+    array('Ботинки', "Spring", 3000, 30),
+    array('Ботинки', "Autumn", 4000, 40));
 $tshirts = array(
     array('Футболки', "Winter",1000, 10),
-    array('Футболки', "Summer", 2000, 45),
-    array('Футболки', "Spring", 1500, 35),
-    array('Футболки', "Autumn", 1500, 10));
+    array('Футболки', "Summer", 2000, 20),
+    array('Футболки', "Spring", 3000, 30),
+    array('Футболки', "Autumn", 4000, 40));
 $cap = array(
-    array('Кепки', "Winter",100, 5),
-    array('Кепки', "Summer", 200, 3),
-    array('Кепки', "Spring", 150, 4),
-    array('Кепки', "Autumn", 150, 8));
+    array('Кепки', "Winter",1000, 10),
+    array('Кепки', "Summer", 2000, 20),
+    array('Кепки', "Spring", 3000, 30),
+    array('Кепки', "Autumn", 4000, 40));
 $glasses = array(
-    array('Очки', "Winter",400, 3),
-    array('Очки', "Summer", 600, 7),
-    array('Очки', "Spring", 750, 9),
-    array('Очки', "Autumn", 750, 5));
+    array('Очки', "Winter",1000, 10),
+    array('Очки', "Summer", 2000, 20),
+    array('Очки', "Spring", 3000, 30),
+    array('Очки', "Autumn", 4000, 40));
 $sweatshirts = array(
-    array('Кофты', "Winter",4000, 13),
-    array('Кофты', "Summer", 6000, 17),
-    array('Кофты', "Spring", 7500, 19),
-    array('Кофты', "Autumn", 7500, 15));
+    array('Кофты', "Winter",1000, 10),
+    array('Кофты', "Summer", 2000, 20),
+    array('Кофты', "Spring", 3000, 30),
+    array('Кофты', "Autumn", 4000, 40));
 $socks = array(
-    array('Носки', "Winter",50, 100),
-    array('Носки', "Summer", 60, 200),
-    array('Носки', "Spring", 85, 40),
-    array('Носки', "Autumn", 85, 56));
+    array('Носки', "Winter",1000, 10),
+    array('Носки', "Summer", 2000, 20),
+    array('Носки', "Spring", 3000, 30),
+    array('Носки', "Autumn", 4000, 40));
 $trousers = array(
-    array('Штаны', "Winter",5000, 10),
-    array('Штаны', "Summer", 6000, 20),
-    array('Штаны', "Spring", 8500, 5),
-    array('Штаны', "Autumn", 8500, 9));
-
-
-
-
-switch ($seasons) {
-    case "Winter":
-        echo "Зимняя колекция: " . "<br>" . "<hr>";
-        echo $shoes [0][0] . ": " . "  Цена: " . $shoes [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $shoes[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $tshirts [0][0] . ": " . "  Цена: " . $tshirts [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $tshirts[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $cap [0][0] . ": " . "  Цена: " . $cap [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $cap[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $glasses [0][0] . ": " . "  Цена: " . $glasses [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $glasses[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $sweatshirts [0][0] . ": " . "  Цена: " . $sweatshirts [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $sweatshirts[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $socks [0][0] . ": " . "  Цена: " . $socks [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $socks[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $trousers [0][0] . ": " . "  Цена: " . $trousers [0][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $trousers[0][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        break;
-    case "Summer":
-        echo "Летняя колекция: " . "<br>" . "<hr>";
-        echo $shoes [0][0] . ": " . "  Цена: " . $shoes [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $shoes[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $tshirts [0][0] . ": " . "  Цена: " . $tshirts [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $tshirts[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $cap [0][0] . ": " . "  Цена: " . $cap [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $cap[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $glasses [0][0] . ": " . "  Цена: " . $glasses [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $glasses[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $sweatshirts [0][0] . ": " . "  Цена: " . $sweatshirts [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $sweatshirts[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $socks [0][0] . ": " . "  Цена: " . $socks [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $socks[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $trousers [0][0] . ": " . "  Цена: " . $trousers [1][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $trousers[1][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        break;
-    case "Spring":
-        echo "Весенняя колекция: " . "<br>" . "<hr>";
-        echo $shoes [0][0] . ": " . "  Цена: " . $shoes [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $shoes[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $tshirts [0][0] . ": " . "  Цена: " . $tshirts [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $tshirts[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $cap [0][0] . ": " . "  Цена: " . $cap [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $cap[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $glasses [0][0] . ": " . "  Цена: " . $glasses [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $glasses[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $sweatshirts [0][0] . ": " . "  Цена: " . $sweatshirts [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $sweatshirts[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $socks [0][0] . ": " . "  Цена: " . $socks [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $socks[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $trousers [0][0] . ": " . "  Цена: " . $trousers [2][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $trousers[2][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        break;
-    case "Autumn":
-        echo "Осенняя колекция: " . "<br>" . "<hr>";
-        echo $shoes [0][0] . ": " . "  Цена: " . $shoes [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $shoes[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $tshirts [0][0] . ": " . "  Цена: " . $tshirts [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $tshirts[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $cap [0][0] . ": " . "  Цена: " . $cap [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $cap[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $glasses [0][0] . ": " . "  Цена: " . $glasses [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $glasses[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $sweatshirts [0][0] . ": " . "  Цена: " . $sweatshirts [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $sweatshirts[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $socks [0][0] . ": " . "  Цена: " . $socks [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $socks[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        echo $trousers [0][0] . ": " . "  Цена: " . $trousers [3][2] . 'руб. ' . '<input type="number" name="shoes" value="0" min="0" max= "'. $trousers[3][3] . '">' . '<input type="submit" value="В корзину"><br>';
-        break;
-
-}
-
+    array('Штаны', "Winter",1000, 10),
+    array('Штаны', "Summer", 2000, 20),
+    array('Штаны', "Spring", 30000, 30),
+    array('Штаны', "Autumn", 4000, 40));
 ?>
 
-
+<form method="POST">
+<ul>
+    <li><?php echo $shoes [$i][0] . ": " . "  Цена: " . $shoes [$i][2] . 'руб. '?>
+    <input type="number" name="shoes" value="0" min="0" max = "<?= $shoes[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+    <li><?php echo $tshirts [$i][0] . ": " . "  Цена: " . $tshirts [$i][2] . 'руб. '?>
+    <input type="number" name="tshirts" value="0" min="0" max = "<?= $tshirts[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+    <li><?php echo $cap [$i][0] . ": " . "  Цена: " . $cap [$i][2] . 'руб. '?>
+    <input type="number" name="cap" value="0" min="0" max = "<?= $cap[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+    <li><?php echo $glasses [$i][0] . ": " . "  Цена: " . $glasses [$i][2] . 'руб. '?>
+    <input type="number" name="glasses" value="0" min="0" max = "<?= $glasses[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+    <li><?php echo $sweatshirts [$i][0] . ": " . "  Цена: " . $sweatshirts [$i][2] . 'руб. '?>
+    <input type="number" name="sweatshirts" value="0" min="0" max = "<?= $sweatshirts[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+    <li><?php echo $socks [$i][0] . ": " . "  Цена: " . $socks [$i][2] . 'руб. '?>
+    <input type="number" name="socks" value="0" min="0" max = "<?= $socks[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+    <li><?php echo $trousers [$i][0] . ": " . "  Цена: " . $socks [$i][2] . 'руб. '?>
+    <input type="number" name="trousers" value="0" min="0" max = "<?= $trousers[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
+<ul>
+</form>
+<?php
+// добавление в корзину
+if ($_POST["trousers"]){
+    $val_1 = $_POST['trousers'];
+    array_push($buyer[0], "Цена за единицу: ", $trousers [$i][2], "Количество: ", $val_1, "Итого: ", ($trousers [$i][2] * $val_1));
+    echo '<pre>';
+    print_r($buyer);
+    echo '</pre>';}
+  
+?>
 
 </body>
 </html>
-
-
