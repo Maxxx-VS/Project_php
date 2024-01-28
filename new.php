@@ -2,50 +2,6 @@
 <html>
 <body>
 
-<?php
-$i = 0;
-// устанавливаем время года
-$flag = true;
-do {
-switch (date("m")) {
-    case 1:
-    case 2:
-    case 12:
-        $i = 0;
-    break;
-    case 3:
-    case 4:
-    case 5:
-        $i = 1;
-    break;
-    case 6:
-    case 7:
-    case 8:
-        $i = 2;
-    break;
-    case 9:
-    case 10:
-    case 11:
-        $i = 3;
-    break;
-    default:
-        throw new Exception('Ошибка');
-    break;}
-    } while ($flaf = false);
-// определяем переменные
-$seasons = '';
-$buyer = array(
-    array(),
-    array(),
-    array(),
-    array(),
-    array(),
-    array(),
-    array(),
-);
-$money = 10000;
-?>
-
 <h3>Вбибирай сезон:</h3>
 <form method="POST">
     <input type="radio" name="course1" value="Winter" />Зима <br>
@@ -56,6 +12,51 @@ $money = 10000;
 </form>
 
 <?php
+// устанавливаем время года
+$flag = 0;
+do {
+switch (date("m")) {
+    case 1:
+    case 2:
+    case 12:
+        $i = 0;
+        $flaf = 1;
+    break;
+    case 3:
+    case 4:
+    case 5:
+        $i = 1;
+        $flaf = 1;
+    break;
+    case 6:
+    case 7:
+    case 8:
+        $i = 2;
+        $flaf = 1;
+    break;
+    case 9:
+    case 10:
+    case 11:
+        $i = 3;
+        $flaf = 1;
+    break;
+    default:
+        throw new Exception('Ошибка');
+    break;}
+    } while ($flaf != 1);
+
+
+
+
+
+
+
+
+    
+// определяем переменные
+$seasons = '';
+$money = 10000;
+
 // выбор времени года
 if (isset($_POST["course1"])){
     $seasons = $_POST["course1"];
@@ -104,7 +105,7 @@ $socks = array(
 $trousers = array(
     array('Штаны', "Winter",1000, 10),
     array('Штаны', "Summer", 2000, 20),
-    array('Штаны', "Spring", 30000, 30),
+    array('Штаны', "Spring", 3000, 30),
     array('Штаны', "Autumn", 4000, 40));
 ?>
 
@@ -126,7 +127,9 @@ $trousers = array(
     <input type="number" name="trousers" value="0" min="0" max = "<?= $trousers[$i][3]; ?>"><input type="submit" value="В корзину"><br><hr>
 <ul>
 </form>
+
 <?php
+echo $a;
 // добавление в корзину
 if ($_POST["trousers"]){
     $val_1 = $_POST['trousers'];
@@ -134,7 +137,7 @@ if ($_POST["trousers"]){
     echo '<pre>';
     print_r($buyer);
     echo '</pre>';}
-  
+
 ?>
 
 </body>
