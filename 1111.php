@@ -131,6 +131,8 @@ function clean(){
 if (isset($_POST["shoes"])){
     echo "ДА!";
     echo $i;
+    echo $i;
+    echo $i;
 } 
 ?>
 
