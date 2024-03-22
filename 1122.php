@@ -70,6 +70,9 @@ elseif (isset($_POST["course4"])){
 
 
 function winter($shoes, $tshirts, $cap, $glasses, $sweatshirts, $socks, $trousers, $i){
+    echo $Json_file[0]["Ботинки"];
+    echo $Json_file[0]["Цена"];
+    echo $Json_file[0]["Остаток"];
     echo "<b> КОЛЛЕКЦИЯ - ". $shoes[$i][1] . ":<br><br></b>";
     echo $shoes [$i][0] . ": " . "  Цена: " . $shoes [$i][2] . 'руб. ';
     echo '<input type="number" name="' . $shoes[$i][0] . '" value="0" min="0" max="' . $shoes[$i][3] . '"><input type="submit" value="В корзину"><br><hr>';

@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(209, 201, 201);
+}
+h2 {
+    font-size: 40px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-weight: 900;
+    text-align: center
+}
+select {
+    background-color: rgb(97, 139, 139);
+    width: 150px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 23px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-weight: 900;
+    text-align: center
+}
+form {
+    text-align: center
+}
+input {
+    margin-top: 15px;
+    background-color: rgb(139, 97, 132);
+    width: 150px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 23px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-weight: 900;
+    text-align: center
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+body {
+    display: block;
+    font-size: 20px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-weight: 900;
+    text-align: center;
+}
+span {
+    font-size: 100px;
+}

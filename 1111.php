@@ -103,6 +103,7 @@ function winter($shoes, $tshirts, $cap, $glasses, $sweatshirts, $socks, $trouser
     echo "<b> КОЛЛЕКЦИЯ - ". $shoes[$i][1] . ":<br><br></b>";
     echo $shoes [$i][0] . ": " . "  Цена: " . $shoes [$i][2] . 'руб. ';
     echo '<input type="number" name="' . $shoes[$i][0] . '" value="0" min="0" max="' . $shoes[$i][3] . '"><input type="submit" value="В корзину"><br><hr>';
+    echo '<button class="btn btn-outline-primary btn-sm" name="btn3-1">+</button> <?php echo $Json_file[3]["Количество"]; ?> <button class="btn btn-outline-primary btn-sm" name="btn3-2">-</button> <button class="btn btn-warning btn-sm" name="add">В корзину</button>';
     echo $tshirts [$i][0] . ": " . "  Цена: " . $tshirts [$i][2] . 'руб. ';
     echo '<input type="number" name="tshirts" value="0" min="0" max="' . $tshirts[$i][3] . '"><input type="submit" value="В корзину"><br><hr>';
     echo $cap [$i][0] . ": " . "  Цена: " . $cap [$i][2] . 'руб. ';
@@ -130,8 +131,6 @@ function clean(){
 <?php
 if (isset($_POST["shoes"])){
     echo "ДА!";
-    echo $i;
-    echo $i;
     echo $i;
 } 
 ?>

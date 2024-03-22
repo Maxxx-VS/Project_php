@@ -78,6 +78,7 @@ $products = [
                 <td>
                     <input type="number" name="quantities[]" value="0" min="0" max="<?= $product['in_stock']; ?>">
                 </td>
+                <td><button type="submit">Сформировать чек</button></td>
                 <input type="hidden" name="products[]" value="<?= $product['id']; ?>">
             </tr>
         <?php endforeach; ?>
@@ -91,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Получаем данные из формы
     $selectedProducts = $_POST['products'];
     $quantities = $_POST['quantities'];
+
 
     // Проверяем, что массивы не пустые
     if (!empty($selectedProducts) && !empty($quantities)) {

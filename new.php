@@ -47,11 +47,6 @@ switch (date("m")) {
 
 
 
-
-
-
-
-
     
 // определяем переменные
 $seasons = '';
@@ -128,17 +123,30 @@ $trousers = array(
 <ul>
 </form>
 
-<?php
-echo $a;
-// добавление в корзину
-if ($_POST["trousers"]){
-    $val_1 = $_POST['trousers'];
-    array_push($buyer[0], "Цена за единицу: ", $trousers [$i][2], "Количество: ", $val_1, "Итого: ", ($trousers [$i][2] * $val_1));
-    echo '<pre>';
-    print_r($buyer);
-    echo '</pre>';}
 
-?>
+
 
 </body>
 </html>
+
+
+if ($name = $_POST['ip_14']) {
+        $cart += ['iPhone_14', $name * $phones[1]['price']];}
+        arr($cart, $name);
+
+    if ($name = $_POST['ip_15']) {
+        $cart += ['iPhone_15', $name * $phones[0]['price']];}
+        arr($cart, $name);
+}
+
+function arr($cart, $name) {
+    for ($n = 0; $n < count($cart); $n++) {
+        echo $n + 1 . '.' . $cart[$n] . "<br>\r\n";
+            break 1;
+    }
+}
+
+
+if ($name = $_POST['ip_15']) {
+        $cart += ['iPhone_15', $name * $phones[0]['price']];}
+        arr($cart);
