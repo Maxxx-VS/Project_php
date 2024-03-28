@@ -10,6 +10,7 @@
 <h2>Добро пожаловать</h2>
 <h2>в магазин на диване!</h2>
 <body>
+    
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
    
         <select name="Googs">
@@ -39,6 +40,7 @@
 
 
 <?php
+
 
 
 if(isset($_POST['Googs'])) {
